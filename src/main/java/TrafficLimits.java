@@ -77,7 +77,7 @@ public class TrafficLimits {
             public void gotPacket(PcapPacket pcapPacket) {
                 int len = pcapPacket.length();
                 totalPacketLength += len;
-                
+
                 // захват трафика за 5 минут
                 if (startTime[0] > 5 * 60 * 1000) {
                     if (totalPacketLength < minPacketLength) {
