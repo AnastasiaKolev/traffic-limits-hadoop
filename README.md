@@ -31,7 +31,7 @@ ___
 
 ## Cloudera Manager resources requirements
 
-![Cloudera Manager]()
+![Cloudera Manager](https://github.com/AnastasiaKolev/traffic-limits-hadoop/blob/master/Cloudera%20memory%20uasage.png)
 
 ## Hive Database 
 
