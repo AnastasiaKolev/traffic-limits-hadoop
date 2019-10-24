@@ -78,27 +78,28 @@ public class TrafficLimits {
                 int len = pcapPacket.length();
                 totalPacketLength += len;
 
+                long time = System.currentTimeMillis();
+
                 // захват трафика за 5 минут
-                if (startTime[0] > 5 * 60 * 1000) {
+                if (time > (startTime[0] + 5 * 60 * 1000)) {
                     if (totalPacketLength < minPacketLength) {
                         // send alert to Kafka
                         sendAlert();
 
-                        System.out.println( "total.length() is less than min value " + totalPacketLength );
+                        System.out.println( "Packet length for 5 minutes is less than min " + totalPacketLength );
                     }
                     if (totalPacketLength > maxPacketLength) {
                         // send alert to Kafka
                         sendAlert();
 
-                        System.out.println( "total.length() is higher than max value " + totalPacketLength );
+                        System.out.println( "Packet length for 5 minutes is higher than max " + totalPacketLength );
                     }
                     totalPacketLength = 0;
                     startTime[0] = System.currentTimeMillis();
                 }
 
-                System.out.println( "1.pcapPacket.length() " + len );
-                System.out.println( "2.handle.getTimestampPrecision() " + handle.getTimestampPrecision() );
-                System.out.println( "3.pcapPacket " + pcapPacket );
+                System.out.println( "Total Packet Length " + totalPacketLength
+                        + " per " + readTimeout + " milliseconds" );
             }
         };
 
@@ -112,9 +113,6 @@ public class TrafficLimits {
 
         // Cleanup when complete
         handle.close();
-
-        System.out.println( "Total Packet Length " + totalPacketLength
-                + " per " + readTimeout + " milliseconds" );
     }
 
     // todo: select network interface by args
