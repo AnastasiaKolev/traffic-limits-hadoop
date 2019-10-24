@@ -33,8 +33,15 @@ ___
 
 ![Cloudera Manager](https://github.com/AnastasiaKolev/traffic-limits-hadoop/blob/master/Cloudera%20memory%20uasage.png)
 
+## CDH and Kafka parcels activated
+
+![Parcels](https://github.com/AnastasiaKolev/traffic-limits-hadoop/blob/master/Parcels.png)
+
+
 ## Hive Database 
 
 Table with traffic limitations per hour
 
-![Limits per hour]()
+![Limits per hour](https://github.com/AnastasiaKolev/traffic-limits-hadoop/blob/master/TableHive.png)
+
+![Hue view](https://github.com/AnastasiaKolev/traffic-limits-hadoop/blob/master/db.png)
